@@ -241,4 +241,94 @@
         }
         #reiniciarBtn:hover {
             background-color: #696f73;
+
         }
+/* --- ESTILOS PARA DISPOSITIVOS MÓVILES Y TABLETAS --- */
+/* Se aplicarán en pantallas de 768px de ancho o menos */
+
+@media (max-width: 768px) {
+
+    /* Ajustes generales para dar más espacio */
+    body {
+        padding: 20px 10px; /* Reduce el padding general */
+    }
+
+    .container {
+        padding: 20px; /* Reduce el padding interno del contenedor */
+    }
+
+    .header h2 {
+        font-size: 1.5em; /* Reduce el tamaño del título */
+    }
+
+    .header .logo {
+        height: 50px; /* Hace el logo un poco más pequeño */
+    }
+
+    /* La transformación de la tabla es la parte más importante */
+
+    /* 1. Ocultamos los encabezados originales de la tabla */
+    .accounting-table thead {
+        display: none;
+    }
+
+    /* 2. Convertimos la tabla y sus filas en bloques verticales */
+    .accounting-table, .accounting-table tbody, .accounting-table tr, .accounting-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .accounting-table tr {
+        margin-bottom: 20px; /* Crea separación entre cada "tarjeta" de concepto */
+        border: 1px solid #dfe6ee;
+        border-radius: 8px;
+    }
+    
+    .accounting-table td {
+        text-align: right; /* Alinea el contenido a la derecha */
+        position: relative;
+        padding-left: 50%; /* Deja espacio a la izquierda para la etiqueta */
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .accounting-table td:last-child {
+        border-bottom: none;
+    }
+
+    /* 3. Usamos pseudo-elementos para añadir las etiquetas ("Cargo:", "Abono:") */
+    .accounting-table td::before {
+        content: attr(data-label); /* Usaremos un atributo que añadiremos en el HTML */
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 30px);
+        text-align: left;
+        font-weight: bold;
+        color: #52617a;
+    }
+
+    /* Ocultamos las etiquetas para la primera columna que es el concepto */
+     .accounting-table td:first-child {
+        background-color: #f5f7fa;
+        text-align: center;
+        padding-left: 15px;
+        font-weight: bold;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    
+    .accounting-table td:first-child::before {
+        content: "";
+    }
+    
+    /* Ajustes para las celdas de resultado */
+    .totals-row td:first-child, .final-balance-label {
+        background-color: transparent;
+        font-weight: bold;
+        text-align: left;
+    }
+    
+    .result-cell {
+        text-align: center !important;
+    }
+}
