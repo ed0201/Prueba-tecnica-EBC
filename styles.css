@@ -243,51 +243,48 @@
             background-color: #696f73;
 
         }
-/* --- ESTILOS PARA DISPOSITIVOS MÓVILES Y TABLETAS --- */
-/* Se aplicarán en pantallas de 768px de ancho o menos */
+
 
 @media (max-width: 768px) {
 
-    /* Ajustes generales para dar más espacio */
+
     body {
-        padding: 20px 10px; /* Reduce el padding general */
+        padding: 20px 10px; 
     }
 
     .container {
-        padding: 20px; /* Reduce el padding interno del contenedor */
+        padding: 20px; 
     }
 
     .header h2 {
-        font-size: 1.5em; /* Reduce el tamaño del título */
+        font-size: 1.5em; 
     }
 
     .header .logo {
-        height: 50px; /* Hace el logo un poco más pequeño */
+        height: 50px; 
     }
 
-    /* La transformación de la tabla es la parte más importante */
 
-    /* 1. Ocultamos los encabezados originales de la tabla */
     .accounting-table thead {
         display: none;
     }
 
-    /* 2. Convertimos la tabla y sus filas en bloques verticales */
+
     .accounting-table, .accounting-table tbody, .accounting-table tr, .accounting-table td {
         display: block;
         width: 100%;
     }
 
     .accounting-table tr {
-        margin-bottom: 20px; /* Crea separación entre cada "tarjeta" de concepto */
+        margin-bottom: 20px; 
         border: 1px solid #dfe6ee;
         border-radius: 8px;
     }
     
     .accounting-table td {
-        text-align: right; /* Alinea el contenido a la derecha */
+        text-align: right; 
         position: relative;
-        padding-left: 50%; /* Deja espacio a la izquierda para la etiqueta */
+        padding-left: 50%; 
         border: none;
         border-bottom: 1px solid #eee;
     }
@@ -296,9 +293,8 @@
         border-bottom: none;
     }
 
-    /* 3. Usamos pseudo-elementos para añadir las etiquetas ("Cargo:", "Abono:") */
     .accounting-table td::before {
-        content: attr(data-label); /* Usaremos un atributo que añadiremos en el HTML */
+        content: attr(data-label); 
         position: absolute;
         left: 15px;
         width: calc(50% - 30px);
@@ -307,7 +303,7 @@
         color: #52617a;
     }
 
-    /* Ocultamos las etiquetas para la primera columna que es el concepto */
+  
      .accounting-table td:first-child {
         background-color: #f5f7fa;
         text-align: center;
@@ -321,7 +317,6 @@
         content: "";
     }
     
-    /* Ajustes para las celdas de resultado */
     .totals-row td:first-child, .final-balance-label {
         background-color: transparent;
         font-weight: bold;
@@ -330,5 +325,85 @@
     
     .result-cell {
         text-align: center !important;
+    }
+}
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px 5px;
+    }
+    .container {
+        padding: 15px;
+    }
+    .header h2 {
+        font-size: 1.4em;
+    }
+    .table-container {
+        border: none;
+    }
+
+    .accounting-table thead {
+        display: none;
+    }
+
+  
+    .accounting-table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #dfe6ee;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    
+    .accounting-table td {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 12px 15px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    
+    .accounting-table tr td:last-child {
+        border-bottom: none;
+    }
+
+
+    .accounting-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #52617a;
+        text-align: left;
+    }
+
+    .accounting-table td:first-child {
+        background-color: #f5f7fa;
+        font-weight: bold;
+        display: block; 
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    .accounting-table td:first-child::before {
+        content: "";
+    }
+    
+    .accounting-table td input {
+        width: 50%;
+        max-width: 150px; 
+    }
+
+  
+    .totals-row td, .final-balance-label {
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    .result-cell {
+        font-size: 1.1em;
     }
 }
